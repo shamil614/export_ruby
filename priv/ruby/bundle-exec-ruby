@@ -1,0 +1,12 @@
+#!/bin/bash
+# get the dir path relative to the bash script file
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# change directory and silence output so it won't error in erlport
+pushd $DIR > /dev/null 2>&1
+
+# ensure that bundler is looking for the correct Gemfile
+export BUNDLE_GEMFILE=$DIR"/Gemfile"
+
+# change PATH and Gem file vars and pass in the flags set in erlport
+bundle exec ruby "$@"

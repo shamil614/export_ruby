@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+source "https://rubygems.org"
+
+ruby "2.4.1"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# Needed for Date Time extensions
+gem "activesupport", "4.2.9"
+
+# handles repeated events / schedules.
+gem "ice_cube", git: "https://github.com/seejohnrun/ice_cube.git", ref: "full_tz"
